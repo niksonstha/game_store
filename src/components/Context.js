@@ -8,6 +8,8 @@ const APP_URL = `https://api.rawg.io/api/games?page_size=50&page=1&key=d38ef63fb
 
 const AppProvider = ({ children }) => {
   const [games, setGames] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const getGames = async (url) => {
     try {
       const res = await axios.get(url);
@@ -27,7 +29,9 @@ const AppProvider = ({ children }) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ games }}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{ games, searchTerm, setSearchTerm }}>
+      {children}
+    </AppContext.Provider>
   );
 };
 

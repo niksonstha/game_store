@@ -1,32 +1,59 @@
-import { Box, Grid, GridItem, Image } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Image, Text, Badge } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { AppContext } from "./Context";
 
 function RowGames() {
-  const { games } = useContext(AppContext);
+  const { games, searchTerm } = useContext(AppContext);
+
+  const filteredGames = games.filter((game) =>
+    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <Box color="white" px="200px">
+      {filteredGames.length === 0 && (
+        <Badge
+          colorScheme="red"
+          my="400px"
+          p="30px"
+          fontSize="20px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          textAlign="center"
+        >
+          No items found
+        </Badge>
+      )}
       <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="130px">
-        {games.slice(0, 18).map((game) => (
+        {filteredGames.slice(0, 18).map((game) => (
           <GridItem
             key={game.id}
             w="100%"
             h="400px"
-            border="2px solid red"
-            textAlign="center"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
+            p="4"
+            borderWidth="1px"
+            borderRadius="lg"
+            boxShadow="md"
+            overflow="hidden"
           >
-            {game.name}
-            <Image
-              src={game.background_image}
-              height="300px"
-              width="400px"
-              p={5}
-            />
+            <Box height="70%">
+              <Image
+                src={game.background_image}
+                alt={game.name}
+                height="100%"
+                width="100%"
+                objectFit="cover"
+              />
+            </Box>
+            <Box height="30%" textAlign="center">
+              <Text fontSize="xl" fontWeight="bold" mb="2">
+                {game.name}
+              </Text>
+              <Text fontSize="sm" color="gray.500">
+                Released: {game.released}
+              </Text>
+            </Box>
           </GridItem>
         ))}
       </Grid>

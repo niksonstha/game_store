@@ -1,9 +1,14 @@
 import { Flex, Image, Input } from "@chakra-ui/react";
+import React, { useContext } from "react";
+import { AppContext } from "./Context";
 
 function Navbar() {
-  const searchHandler = (e) => {
-    console.log(e.target.value);
+  const { searchTerm, setSearchTerm } = useContext(AppContext);
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
   };
+
   return (
     <Flex
       height="100px"
@@ -24,9 +29,9 @@ function Navbar() {
       />
 
       <Input
-        type="search"
+        type="text"
         width="15%"
-        placeholder="search for games"
+        placeholder="Search for games"
         _placeholder={{ opacity: 0.8, color: "white" }}
         color="white"
         borderRadius="50px"
@@ -35,7 +40,8 @@ function Navbar() {
         focusBorderColor="green.400"
         textAlign="center"
         mr={5}
-        onChange={searchHandler}
+        value={searchTerm}
+        onChange={handleSearch}
       />
     </Flex>
   );
