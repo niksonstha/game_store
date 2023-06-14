@@ -4,8 +4,7 @@ import React from "react";
 
 const AppContext = React.createContext();
 
-const APP_URL =
-  "https://api.rawg.io/api/games?key=d38ef63fb8aa4fefbf763f2baa2b9a7f";
+const APP_URL = `https://api.rawg.io/api/games?page_size=50&page=1&key=d38ef63fb8aa4fefbf763f2baa2b9a7f`;
 
 const AppProvider = ({ children }) => {
   const [games, setGames] = useState([]);

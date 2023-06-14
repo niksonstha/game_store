@@ -5,7 +5,7 @@ import { Box } from "@chakra-ui/react";
 
 function Home() {
   return (
-    <Box height="-moz-max-content">
+    <Box>
       <Navbar />
       <RowGames />
     </Box>
