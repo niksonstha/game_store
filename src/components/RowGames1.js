@@ -2,16 +2,18 @@ import { Box, Grid, GridItem, Image, Text, Badge } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { AppContext } from "./Context";
 
-function RowGames() {
-  const { games, searchTerm } = useContext(AppContext);
+function RowGames1() {
+  const { games1, searchTerm } = useContext(AppContext);
 
-  const filteredGames = games.filter((game) =>
-    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredGames1 = games1
+    .slice(0, 9)
+    .filter((game) =>
+      game.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
   return (
     <Box color="white" px="200px">
-      {filteredGames.length === 0 && (
+      {filteredGames1.length === 0 && (
         <Badge
           colorScheme="red"
           my="400px"
@@ -35,7 +37,7 @@ function RowGames() {
         gap={6}
         mt="130px"
       >
-        {filteredGames.slice(0, 18).map((game) => (
+        {filteredGames1.map((game) => (
           <GridItem
             key={game.id}
             w="100%"
@@ -70,4 +72,4 @@ function RowGames() {
   );
 }
 
-export default RowGames;
+export default RowGames1;
