@@ -9,6 +9,7 @@ function Navbar() {
     setSearchTerm(e.target.value);
   };
 
+  
   return (
     <Flex
       height="100px"

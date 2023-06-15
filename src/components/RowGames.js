@@ -25,7 +25,16 @@ function RowGames() {
           No items found
         </Badge>
       )}
-      <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="130px">
+
+      <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+        }}
+        gap={6}
+        mt="130px"
+      >
         {filteredGames.slice(0, 18).map((game) => (
           <GridItem
             key={game.id}
