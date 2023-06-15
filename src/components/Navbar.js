@@ -20,7 +20,7 @@ function Navbar() {
       position="fixed"
       top="0"
     >
-      <NavLink to="/rowgames1">
+      <NavLink to="/">
         <Image
           src="https://img.freepik.com/free-vector/skull-gaming-with-joy-stick-emblem-modern-style_32991-492.jpg"
           alt="Dan Abramov"
