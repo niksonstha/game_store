@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/game_store/static/css/main.f3a50eb4.css",
+    "main.js": "/game_store/static/js/main.17f844f3.js",
+    "index.html": "/game_store/index.html",
+    "main.f3a50eb4.css.map": "/game_store/static/css/main.f3a50eb4.css.map",
+    "main.17f844f3.js.map": "/game_store/static/js/main.17f844f3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3a50eb4.css",
+    "static/js/main.17f844f3.js"
+  ]
+}
