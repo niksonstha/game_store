@@ -4,12 +4,16 @@ import { NavLink } from "react-router-dom";
 
 function NavigationButtons({ prevPath, nextPath }) {
   return (
-    <Box textAlign="center" pt={3}>
+    <Box textAlign="center" pt={5} pb="100px">
       <NavLink to={prevPath}>
-        <Button mr={2}>Previous</Button>
+        <Button mr={2} colorScheme="pink" width="100px" textColor="black">
+          Previous
+        </Button>
       </NavLink>
       <NavLink to={nextPath}>
-        <Button>Next</Button>
+        <Button colorScheme="pink" width="100px" textColor="black">
+          Next
+        </Button>
       </NavLink>
     </Box>
   );
